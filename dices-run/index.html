@@ -8,30 +8,75 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #4a90e2;
+    }
+    h3, h2 {
+      color: #333;
     }
     table {
       margin: 20px auto;
       border-collapse: collapse;
-      width: 50%;
+      width: 60%;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
     }
     th, td {
-      border: 1px solid #333;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.2em;
+    }
+    th {
+      background-color: #4a90e2;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
     }
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #357abd;
+      transform: scale(1.05);
+    }
+    button:active {
+      background-color: #285f91;
     }
     .winner {
       font-weight: bold;
-      color: green;
+      color: #27ae60;
+    }
+    .dice-roll {
+      font-size: 2em;
+      animation: bounce 0.6s ease;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
   </style>
 </head>
 <body>
-<h1>Dice Run Game</h1>
+<h1>🎲 Dice Run Game</h1>
 <h3>Target Score: <span id="target-score"></span></h3>
 <table>
   <thead>
@@ -43,7 +88,7 @@
   <tbody id="score-grid">
   </tbody>
 </table>
-<button id="roll-dice">Roll Dice</button>
+<button id="roll-dice">🎲 Roll Dice</button>
 <h2 id="winner-message" class="winner"></h2>
 
 <script src="index.js"></script>

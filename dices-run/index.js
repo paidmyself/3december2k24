@@ -1,4 +1,4 @@
-const players = ["Player 1", "Player 2"]; // Player names
+const players = ["Player 1 👤", "Player 2 👥"]; // Player names with emojis
 const scores = [0, 0]; // Scores for players
 const targetScore = Math.floor(Math.random() * 50) + 20; // Random target between 20 and 70
 let currentPlayer = 0; // Tracks the current player's turn
@@ -15,7 +15,7 @@ function updateScoreGrid() {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${player}</td>
-      <td>${scores[index]}</td>
+      <td>${scores[index]} ${index === 0 ? "🎯" : "⭐"}</td>
     `;
     grid.appendChild(row);
   });
@@ -26,11 +26,18 @@ function rollDice() {
   if (gameWon) return;
 
   const roll = Math.floor(Math.random() * 6) + 1; // Random dice roll between 1-6
+  const diceDisplay = document.createElement("span");
+  diceDisplay.className = "dice-roll";
+  diceDisplay.textContent = `🎲 ${roll}`;
+  document.getElementById("roll-dice").appendChild(diceDisplay);
+
+  setTimeout(() => diceDisplay.remove(), 600); // Remove animation after 0.6s
+
   scores[currentPlayer] += roll; // Add roll to current player's score
 
   // Check for a winner
   if (scores[currentPlayer] >= targetScore) {
-    document.getElementById("winner-message").textContent = `${players[currentPlayer]} wins with ${scores[currentPlayer]} points!`;
+    document.getElementById("winner-message").textContent = `${players[currentPlayer]} wins with ${scores[currentPlayer]} points! 🏆`;
     gameWon = true;
     return;
   }

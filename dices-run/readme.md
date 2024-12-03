@@ -15,6 +15,8 @@ Make sure you have one of the following installed:
 1. Open a terminal and navigate to the project folder.
 2. Start a local server:
 
-#### Using Python 3
+#### Using NPM 
 ```bash
-python3 -m http.server
+npm install http-server
+
+http-server
