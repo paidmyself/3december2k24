@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Run Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #4a90e2;
+    }
+    h3, h2 {
+      color: #ddd;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .game-info {
+      flex: 1;
+    }
+    table {
+      border-collapse: collapse;
+      background-color: #1f1f1f;
+      width: 30%;
+      margin-left: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 15px;
+      text-align: center;
+      font-size: 1.2em;
+      color: #fff;
+    }
+    th {
+      background-color: #4a90e2;
+    }
+    tr:hover {
+      background-color: #333;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #4a90e2;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 5px;
+    }
+    button:hover {
+      background-color: #357abd;
+      transform: scale(1.05);
+    }
+    button:active {
+      background-color: #285f91;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1f1f1f;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      text-align: center;
+      display: none;
+    }
+    .popup button {
+      margin-top: 15px;
+      background-color: #e74c3c;
+    }
+    .throw-log {
+      margin-top: 20px;
+      background-color: #1f1f1f;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: left;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+<h1>🎲 Dice Run Game</h1>
+<div class="container">
+  <div class="game-info">
+    <h3>Target Score: <span id="target-score"></span></h3>
+    <h3 id="game-status"></h3>
+    <button id="roll-dice">🎲 Roll Dice</button>
+    <button id="reset-game">🔄 Reset Game</button>
+    <h2 id="winner-message" class="winner"></h2>
+    <div class="throw-log" id="throw-log"></div>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Player</th>
+      <th>Score</th>
+    </tr>
+    </thead>
+    <tbody id="score-grid"></tbody>
+  </table>
+</div>
+<div class="popup" id="constraint-popup">
+  <p id="constraint-message"></p>
+  <button id="close-popup">OK</button>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
