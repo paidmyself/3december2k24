@@ -8,7 +8,8 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f4f4f9;
+      background-color: #121212;
+      color: #fff;
       margin: 0;
       padding: 20px;
     }
@@ -16,29 +17,37 @@
       color: #4a90e2;
     }
     h3, h2 {
-      color: #333;
+      color: #ddd;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .game-info {
+      flex: 1;
     }
     table {
-      margin: 20px auto;
       border-collapse: collapse;
-      width: 60%;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: #1f1f1f;
+      width: 30%;
+      margin-left: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
       border-radius: 8px;
       overflow: hidden;
     }
     th, td {
       padding: 15px;
       text-align: center;
-      border-bottom: 1px solid #ddd;
       font-size: 1.2em;
+      color: #fff;
     }
     th {
       background-color: #4a90e2;
-      color: white;
     }
     tr:hover {
-      background-color: #f1f1f1;
+      background-color: #333;
     }
     button {
       padding: 15px 30px;
@@ -49,6 +58,7 @@
       border-radius: 25px;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 5px;
     }
     button:hover {
       background-color: #357abd;
@@ -57,40 +67,61 @@
     button:active {
       background-color: #285f91;
     }
-    .winner {
-      font-weight: bold;
-      color: #27ae60;
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1f1f1f;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      text-align: center;
+      display: none;
     }
-    .dice-roll {
-      font-size: 2em;
-      animation: bounce 0.6s ease;
+    .popup button {
+      margin-top: 15px;
+      background-color: #e74c3c;
     }
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+    .throw-log {
+      margin-top: 20px;
+      background-color: #1f1f1f;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: left;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     }
   </style>
 </head>
 <body>
 <h1>🎲 Dice Run Game</h1>
-<h3>Target Score: <span id="target-score"></span></h3>
-<table>
-  <thead>
-  <tr>
-    <th>Player</th>
-    <th>Score</th>
-  </tr>
-  </thead>
-  <tbody id="score-grid">
-  </tbody>
-</table>
-<button id="roll-dice">🎲 Roll Dice</button>
-<h2 id="winner-message" class="winner"></h2>
-
+<div class="container">
+  <div class="game-info">
+    <h3>Target Score: <span id="target-score"></span></h3>
+    <h3 id="game-status"></h3>
+    <button id="roll-dice">🎲 Roll Dice</button>
+    <button id="reset-game">🔄 Reset Game</button>
+    <h2 id="winner-message" class="winner"></h2>
+    <div class="throw-log" id="throw-log"></div>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Player</th>
+      <th>Score</th>
+    </tr>
+    </thead>
+    <tbody id="score-grid"></tbody>
+  </table>
+</div>
+<div class="popup" id="constraint-popup">
+  <p id="constraint-message"></p>
+  <button id="close-popup">OK</button>
+</div>
 <script src="index.js"></script>
 </body>
 </html>
