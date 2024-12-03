@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Run Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 50%;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .winner {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+<h1>Dice Run Game</h1>
+<h3>Target Score: <span id="target-score"></span></h3>
+<table>
+  <thead>
+  <tr>
+    <th>Player</th>
+    <th>Score</th>
+  </tr>
+  </thead>
+  <tbody id="score-grid">
+  </tbody>
+</table>
+<button id="roll-dice">Roll Dice</button>
+<h2 id="winner-message" class="winner"></h2>
+
+<script src="index.js"></script>
+</body>
+</html>
